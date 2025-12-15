@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Final Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* 기본 스크롤 숨김 */
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: black;
+  }
+
+  .section {
+    height: 100vh; /* 화면 한 페이지 높이 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease; /* 부드러운 전환 */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .title-section {
+    background-color: black;
+  }
+
+  .letter-section {
+    background-color: #111;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <!-- 첫 페이지 -->
+  <section class="section title-section">
+    <h1>O.I TF가 전하는 마음</h1>
+  </section>
+
+  <!-- 두 번째 페이지 -->
+  <section class="section letter-section">
+    <!-- 실제 사용 시 여기에 편지 내용 전체를 넣으세요 -->
+    <p>…편지 내용 부분…</p>
+  </section>
+</div>
+
+<script>
+  let currentPage = 0;
+  const sections = document.querySelectorAll('.section');
+  const totalPages = sections.length;
+
+  // 휠 이벤트로 페이지 전환
+  window.addEventListener('wheel', function(e) {
+    if (e.deltaY > 0) {
+      // 아래로 스크롤
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        scrollToPage(currentPage);
+      }
+    } else {
+      // 위로 스크롤
+      if (currentPage > 0) {
+        currentPage--;
+        scrollToPage(currentPage);
+      }
+    }
+  }, { passive: true });
+
+  // 터치(모바일) 스와이프 처리
+  let startY = 0;
+  window.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', e => {
+    const endY = e.changedTouches[0].clientY;
+    if (startY - endY > 50) { // 위에서 아래 스와이프
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        scrollToPage(currentPage);
+      }
+    } else if (endY - startY > 50) { // 아래에서 위 스와이프
+      if (currentPage > 0) {
+        currentPage--;
+        scrollToPage(currentPage);
+      }
+    }
+  }, { passive: true });
+
+  function scrollToPage(pageIndex) {
+    document.getElementById('container').style.transform = 
+      `translateY(-${pageIndex * 100}vh)`;
+  }
+</script>
+
+</body>
+</html>
+
