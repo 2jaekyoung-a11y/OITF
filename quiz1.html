@@ -70,9 +70,14 @@
   <button onclick="checkAnswer()">제출</button>
 </div>
 <script>
-function checkAnswer(){
-  if(document.getElementById('answer').value.trim() === "박용우"){
-    window.location.href="quiz2.html";
+function checkAnswer() {
+  const userAnswer = document.getElementById('answer').value.trim();
+  // 정답은 원하는 인물 이름으로 변경 가능 (대소문자 모두 허용 예시)
+  const correctAnswer = "박용우";
+  
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    alert("정답입니다!");
+    window.location.href = "quiz3.html"; // 다음 퀴즈 페이지로 이동
   } else {
     alert("오답입니다. 다시 시도하세요.");
   }
