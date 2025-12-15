@@ -5,7 +5,6 @@
 <title>Final Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  /* 기본 설정 */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -13,9 +12,9 @@
     background-color: black;
   }
 
-  /* 첫 화면 타이틀 */
+  /* 첫 화면 */
   .title-section {
-    height: 100vh; /* 전체 화면 높이 */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,11 +22,9 @@
   }
   .title-section h1 {
     font-size: 2rem;
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
   }
 
-  /* 편지 섹션 (처음에는 숨김 + 페이드인) */
+  /* 편지 섹션 기본값: 안 보임 */
   .letter-section {
     min-height: 100vh;
     padding: 40px 20px;
@@ -35,6 +32,7 @@
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
   }
+  /* 보이는 상태 */
   .letter-section.visible {
     opacity: 1;
   }
@@ -42,7 +40,6 @@
 </head>
 <body>
 
-<!-- 첫 화면 -->
 <section class="title-section">
   <h1>O.I TF가 전하는 마음</h1>
 </section>
@@ -74,6 +71,33 @@
     내년에도 좋은 결과 만들어낼 수 있도록 노력하겠습니다.<br>
     항상 감사드리며, 편안한 연말 보내시길 바랍니다. </p>
 </section>
+
+<script>
+  const letterSection = document.querySelector('.letter-section');
+
+  // 스크롤할 때마다 섹션이 뷰포트 안에 얼마나 들어왔는지 확인
+  window.addEventListener('scroll', () => {
+    const rect = letterSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top < windowHeight - 50 && rect.bottom > 50) {
+      // 화면 안에 있으면 페이드인
+      letterSection.classList.add('visible');
+    } else {
+      // 화면 밖이면 페이드아웃
+      letterSection.classList.remove('visible');
+    }
+  });
+
+  // 처음 로드시에도 확인
+  window.dispatchEvent(new Event('scroll'));
+</script>
+
+</body>
+</html>
+
+
+
 
 <script>
   // 스크롤 시 편지 섹션 페이드인 표시
