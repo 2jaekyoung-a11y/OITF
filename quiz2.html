@@ -2,21 +2,69 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>퀴즈 2</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<title>퀴즈 2 </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 모바일 최적화 -->
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: black; /* 필요 시 배경 이미지 가능 */
+    color: white;
+  }
+  .quiz-container {
+    padding: 20px;
+  }
+  img {
+    max-width: 90%;
+    height: auto;
+    border: 5px solid white;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
+    margin-top: 10px;
+  }
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+</style>
 </head>
-<body style="background-image:url('background1.jpg'); background-color:#fce8d9;">
-<div class="question-container">
-  <h1>두 번째 질문 : </h1>
-  <p>2 + 2 = ?</p>
-  <input type="text" id="answer">
-  <button onclick="checkAnswer()">제출</button>
+<body>
+<div class="quiz-container">
+  <!-- 여기 이미지 파일명을 본인 저장소의 이미지로 변경 -->
+  <img src="유재석.jpg" alt="인물 퀴즈 이미지">
+  
+  <h1>이 그림에서 "당신"은 누구일까요?</h1>
+  
+  <input type="text" id="answer" placeholder="정답">
+  <div>
+    <button onclick="checkAnswer()">제출</button>
+  </div>
 </div>
+
 <script>
-function checkAnswer(){
-  if(document.getElementById('answer').value.trim() === "4"){
-    window.location.href="quiz2.html";
+function checkAnswer() {
+  const userAnswer = document.getElementById('answer').value.trim();
+  // 정답은 원하는 인물 이름으로 변경 가능 (대소문자 모두 허용 예시)
+  const correctAnswer = "박용우";
+  
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    alert("정답입니다!");
+    window.location.href = "quiz2.html"; // 다음 퀴즈 페이지로 이동
   } else {
     alert("오답입니다. 다시 시도하세요.");
   }
@@ -24,4 +72,5 @@ function checkAnswer(){
 </script>
 </body>
 </html>
+
 
