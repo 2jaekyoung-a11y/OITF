@@ -1,26 +1,42 @@
-<!-- start.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>첫 번째 문제</title>
+<meta charset="UTF-8">
+<title>첫 페이지</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    margin:0; 
+    background-color:black; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    height:100vh;
+  }
+  img {
+    opacity:0; 
+    transition:opacity 2s ease-in;
+    max-width:90%;
+    height:auto;
+  }
+</style>
 </head>
 <body>
-  <h1>첫 번째 문제</h1>
-  <p>대한민국의 수도는?</p>
-  
-  <input type="text" id="answer" placeholder="정답 입력">
-  <button onclick="checkAnswer()">제출</button>
+<img id="introImage" src="your_image.jpg" alt="Intro Image">
+<script>
+  const img = document.getElementById('introImage');
+  setTimeout(()=>{
+    img.style.opacity=1;
+  }, 100); // 페이드인 시작
 
-  <script>
-    function checkAnswer() {
-      const input = document.getElementById('answer').value.trim();
-      if (input === "서울") {
-        window.location.href = "quiz2.html"; // 다음 문제 페이지로 이동
-      } else {
-        alert("오답입니다. 다시 시도하세요.");
-      }
-    }
-  </script>
+  setTimeout(()=>{
+    img.style.opacity=0;
+  }, 1100); // 1초 후 사라짐
+
+  setTimeout(()=>{
+    window.location.href="quiz1.html";
+  }, 2500); // 퀴즈 페이지로 이동
+</script>
 </body>
 </html>
