@@ -12,6 +12,12 @@
     background-color: black;
   }
 
+  /* 모든 섹션 공통 */
+  section {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   /* 첫 화면 */
   .title-section {
     height: 100vh;
@@ -22,96 +28,116 @@
   }
   .title-section h1 {
     font-size: 2rem;
+    margin: 0;
   }
 
-  /* 편지 섹션 기본값: 안 보임 */
+  /* 편지 섹션 */
   .letter-section {
     min-height: 100vh;
     padding: 40px 20px;
     background-color: #111;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    text-align: center;
   }
-  /* 보이는 상태 */
   .letter-section.visible {
     opacity: 1;
+  }
+  .letter-section h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  .letter-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+
+  /* 마지막 섹션 */
+  .final-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    background-color: black;
+  }
+  .final-section.visible {
+    opacity: 1;
+  }
+  .final-section h3 {
+    font-size: 1.5rem;
+    margin: 0;
   }
 </style>
 </head>
 <body>
 
+<!-- 첫 화면: 타이틀 -->
 <section class="title-section">
   <h1>O.I TF가 전하는 마음</h1>
 </section>
 
 <!-- 두 번째 화면: 편지 내용 -->
 <section class="letter-section">
-  <h2>💌O.I TF가 대표님께💌</h2>
-  <p>대표님께서 우리 회사를 매우 빠르게 성장하는 조직으로 만들어주신 덕분에 함께 성장하는 구성원으로서 2년을 보냈습니다. <br>
+  <h2>💌O.I TF가 대표님께💌<br></h2>
+  <p>👩🏻대표님께서 우리 회사를 매우 빠르게 성장하는 조직으로 만들어주신 덕분에 함께 성장하는 구성원으로서 2년을 보냈습니다. <br>
     특히 올해는 대표님 직속 조직원으로서 '반드시 성공하는 리더의 표본'을 가까이에서 보고 배울 수 있었음에 매우 감사드립니다.<br>
     SK바이오텍에 오래오래 계셔주십시오. ㅎㅎ</p>
   <p><br></p>
-  <p>2025년 올 한 해동안 열정과 에너지로 회사를 이끌어주심에 감사드립니다.<br>
+  <p>👩🏻2025년 올 한 해동안 열정과 에너지로 회사를 이끌어주심에 감사드립니다.<br>
   제가 SKBT에 처음 왔을 때 놀랐던 점은 모두가 열정으로 빛나고 있다는 점이었습니다.<br>
   앞으로 우리 회사가 더 높은 곳으로, 그리고 더 먼곳으로 힘찬 항해를 이어갈 수 있도록 저 또한 든든한 선원이 될 수 있도록 최선을 다하겠습니다.</p>
   <p><br></p>
-  <p>회사를 다니며 느끼는 점은...저는 정말 좋은 시기에 들어온 것 같다는 생각을 종종합니다.<br>
+  <p>👩🏻회사를 다니며 느끼는 점은...저는 정말 좋은 시기에 들어온 것 같다는 생각을 종종합니다.<br>
     무역의 탐 자료를 보면서 대표님께서 어떻게 저희 회사를 이끌고 성장시키셨는지 알게 되었습니다.<br>
     기대되는 회사의 비전, 좋은 조직 문화, 그리고 존경스러운 대표님.<br>
     앞으로도 열심히 일하겠습니다!!</p>
   <p><br></p>
-  <p>대표님, 진심을 담은 리더십 덕분에 늘 회사 안에서 따듯함과 신뢰를 느낍니다.<br>
+  <p>👩🏻대표님, 진심을 담은 리더십 덕분에 늘 회사 안에서 따듯함과 신뢰를 느낍니다.<br>
     변화의 길을 함께 걸으면서 성장할 수 있도록 이끌어주셔서 정말 감사합니다!<br>
     대표님과 SK바이오텍에 항상 행운이 이어지길 기원하겠습니다.❤️</p>
   <p><br></p>
-  <p>대표님께서 부임하신 후 2년간 회사가 빠르게 성장하고 변화하고 있는 것을 느끼고 있습니다.<br>
+  <p>👦🏻대표님께서 부임하신 후 2년간 회사가 빠르게 성장하고 변화하고 있는 것을 느끼고 있습니다.<br>
     대표님의 열정과 헌신에 늘 감사드립니다. <br>
     연말이라 바쁘시겠지만 건강도 잘 챙기시길 바랍니다<br>
     내년에도 좋은 결과 만들어낼 수 있도록 노력하겠습니다.<br>
     항상 감사드리며, 편안한 연말 보내시길 바랍니다. </p>
+  <p><br></p>
+  <p>👦🏻
 </section>
 
+<!-- 마지막 화면 -->
 <section class="final-section">
-<h3>2026년도 잘 부탁드립니다!</h3>  
+  <h3>2026년도 잘 부탁드립니다!</h3>
 </section>
 
 <script>
   const letterSection = document.querySelector('.letter-section');
+  const finalSection = document.querySelector('.final-section');
 
-  // 스크롤할 때마다 섹션이 뷰포트 안에 얼마나 들어왔는지 확인
   window.addEventListener('scroll', () => {
-    const rect = letterSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+    const rectLetter = letterSection.getBoundingClientRect();
 
-    if (rect.top < windowHeight - 50 && rect.bottom > 50) {
-      // 화면 안에 있으면 페이드인
+    // 편지 섹션이 화면 안에 있으면 페이드 인
+    if (rectLetter.top < window.innerHeight - 50 && rectLetter.bottom > 50) {
       letterSection.classList.add('visible');
-    } else {
-      // 화면 밖이면 페이드아웃
+      finalSection.classList.remove('visible');
+    }
+
+    // 편지 끝나면 페이드 아웃 후 마지막 섹션 페이드 인
+    if (rectLetter.bottom <= 50) {
       letterSection.classList.remove('visible');
+      finalSection.classList.add('visible');
     }
   });
 
-  // 처음 로드시에도 확인
+  // 처음 로드시 상태 갱신
   window.dispatchEvent(new Event('scroll'));
 </script>
 
 </body>
 </html>
 
-
-
-
-<script>
-  // 스크롤 시 편지 섹션 페이드인 표시
-  const letterSection = document.querySelector('.letter-section');
-  window.addEventListener('scroll', () => {
-    const rect = letterSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 50) {
-      letterSection.classList.add('visible');
-    }
-  });
-</script>
-
-</body>
-</html>
