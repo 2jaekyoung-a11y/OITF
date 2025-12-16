@@ -19,6 +19,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    transform: translateY(40px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+    background-color: black;
+  }
+  .title-section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   .title-section h1 {
     font-size: 2rem;
