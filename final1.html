@@ -55,7 +55,7 @@
 
   /* 마지막 섹션 */
   .final-section {
-    height: 60vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +126,7 @@
     }
 
     // 편지 끝나면 페이드 아웃 후 마지막 섹션 페이드 인
-    if (rectLetter.bottom <= 50) {
+    if (rectLetter.bottom <= window.innerHeight/2) {
       letterSection.classList.remove('visible');
       finalSection.classList.add('visible');
     }
