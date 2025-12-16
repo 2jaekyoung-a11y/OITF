@@ -136,7 +136,7 @@
     }
 
     // 편지가 화면절반 아래로 내려가면 → 마지막 보기로 전환
-    if (rectLetter.bottom <= window.innerHeight / 2) {
+    if (rectLetter.bottom <= window.innerHeight - 200) {
       finalSection.classList.add('visible');
       letterSection.classList.remove('visible');
     }
